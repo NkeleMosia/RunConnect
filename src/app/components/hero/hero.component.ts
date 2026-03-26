@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HeroComponent {
 
+ // Scroll to discovery section
+scrollToDiscover() {
+  const section = document.getElementById('discover');
+
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 }

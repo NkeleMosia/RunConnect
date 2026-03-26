@@ -1,1 +1,25 @@
-<p>search-filters works!</p>
+<div class="container filters">
+  <!-- Search input -->
+  <input
+    type="text"
+    placeholder="Search clubs..."
+    [(ngModel)]="search"
+    (input)="applyFilters()"
+  />
+
+  <!-- Area filter -->
+  <select [(ngModel)]="area" (change)="applyFilters()">
+    <option value="">All Areas</option>
+    <option>Sandton</option>
+    <option>Soweto</option>
+    <option>Rosebank</option>
+  </select>
+
+  <!-- Level filter -->
+  <select [(ngModel)]="level" (change)="applyFilters()">
+    <option value="">All Levels</option>
+    <option>Beginner</option>
+    <option>Intermediate</option>
+    <option>Advanced</option>
+  </select>
+</div>

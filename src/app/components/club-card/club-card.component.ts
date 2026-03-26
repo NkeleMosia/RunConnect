@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Club } from '../../models/club.model';
 
 @Component({
   selector: 'app-club-card',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class ClubCardComponent {
 
+  // Receive club from parent
+  @Input() club!: Club;
+
+  // Send selected club back to parent
+  @Output() selectClub = new EventEmitter<Club>();
+
+  // Trigger when button clicked
+  viewDetails() {
+    this.selectClub.emit(this.club);
+  }
 }

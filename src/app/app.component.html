@@ -1,7 +1,42 @@
+<!-- NAVBAR -->
 <app-navbar></app-navbar>
-<app-hero></app-hero>
-<app-search-filters></app-search-filters>
 
-<div class="container">
-  <app-club-card></app-club-card>
+<!-- LANDING PAGE -->
+<section id="landing">
+  <app-hero></app-hero>
+</section>
+
+
+
+<!-- DISCOVERY SECTION -->
+<section id="discover">
+
+  <div class="container">
+    <h2>Discover Running Clubs</h2>
+
+    <!-- Filters -->
+    <app-search-filters (filterChange)="onFilterChange($event)"></app-search-filters>
+
+    <!-- Club grid -->
+    <div class="grid">
+      <app-club-card
+        *ngFor="let club of filteredClubs"
+        [club]="club"
+        (selectClub)="openClub($event)">
+      </app-club-card>
+    </div>
+  </div>
+
+</section>
+
+<!-- MODAL -->
+<div class="modal" *ngIf="selectedClub">
+  <div class="modal-content">
+    <h2>{{ selectedClub.name }}</h2>
+    <p>Area: {{ selectedClub.area }}</p>
+    <p>Pace: {{ selectedClub.pace }}</p>
+    <p>Level: {{ selectedClub.level }}</p>
+
+    <button (click)="closeModal()">Close</button>
+  </div>
 </div>

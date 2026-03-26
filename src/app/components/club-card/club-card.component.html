@@ -1,1 +1,9 @@
-<p>club-card works!</p>
+<div class="club-card">
+  <h3>{{ club.name }}</h3>
+
+  <p><strong>📍</strong> {{ club.area }}</p>
+  <p><strong>Pace:</strong> {{ club.pace }}</p>
+  <p><strong>Level:</strong> {{ club.level }}</p>
+
+  <button (click)="viewDetails()">View Details</button>
+</div>
